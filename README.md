@@ -18,11 +18,12 @@ basado en el Proyecto 1) y elimina las **producciones-ε**, mostrando cada paso 
 │   ├── grammar.py           # Carga y validación de gramáticas
 │   └── epsilon.py           # Eliminación de producciones-ε
 ├── gramaticas/
-│   ├── gramatica1.txt       # Gramática 1 del Ejercicio 2
-│   ├── gramatica2.txt       # Gramática 2 del Ejercicio 2
+│   ├── gramatica1.txt       # Gramática 1 del Problema 2
+│   ├── gramatica2.txt       # Gramática 2 del Problema 2
+│   ├── gramatica3.txt       # Gramática 3 del Problema 2
 │   └── gramatica_error.txt  # Gramática con errores para la demostración
-├── ejercicio2/
-│   ├── Ejercicio2.pdf       # Respuestas de los incisos teóricos
+├── problema2/
+│   ├── Problema2.pdf        # Problema 2: ε, unarias, inútiles y CNF (a mano)
 │   └── generar_pdf.py
 └── tests/test_lab7.py       # Pruebas unitarias
 ```
@@ -32,7 +33,7 @@ basado en el Proyecto 1) y elimina las **producciones-ε**, mostrando cada paso 
 Requiere Python 3.8+ (sin dependencias externas para el programa).
 
 ```bash
-python main.py                                  # procesa las dos gramáticas
+python main.py                                  # procesa las tres gramáticas
 python main.py gramaticas/gramatica1.txt        # un archivo específico
 python main.py gramaticas/gramatica_error.txt   # muestra la validación deteniendo la ejecución
 python -m unittest -v                           # pruebas
@@ -66,7 +67,13 @@ falló, y **detiene la ejecución**.
    producciones triviales `A → A`.
 4. Se imprime la gramática resultante sin producciones-ε.
 
-## Resultados
+## Problema 2 (teórico)
+
+La solución con todo el procedimiento (eliminación de producciones-ε, producciones unarias,
+símbolos inútiles y Forma Normal de Chomsky) de las tres gramáticas está en
+[`problema2/Problema2.pdf`](problema2/Problema2.pdf).
+
+## Resultados del programa (gramáticas sin producciones-ε)
 
 **Gramática 1**
 ```
@@ -83,4 +90,11 @@ A → C | a
 B → C | b
 C → CDE | CE | DE | E
 D → A | B | ab
+```
+
+**Gramática 3**
+```
+S → ASA | AS | SA | aB | a
+A → B | S
+B → b
 ```
