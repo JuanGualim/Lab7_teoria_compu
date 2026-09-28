@@ -3,7 +3,7 @@ Laboratorio 7 - Teoría de la Computación
 Simplificación de gramáticas: eliminación de producciones-ε.
 
 Uso:
-    python main.py                      # procesa gramaticas/gramatica1.txt y gramatica2.txt
+    python main.py                      # procesa las tres gramáticas de gramaticas/
     python main.py archivo1.txt [...]   # procesa los archivos indicados
 """
 
@@ -12,7 +12,11 @@ import sys
 from src.epsilon import eliminar_epsilon
 from src.grammar import ErrorGramatica, cargar_gramatica
 
-ARCHIVOS_POR_DEFECTO = ["gramaticas/gramatica1.txt", "gramaticas/gramatica2.txt"]
+ARCHIVOS_POR_DEFECTO = [
+    "gramaticas/gramatica1.txt",
+    "gramaticas/gramatica2.txt",
+    "gramaticas/gramatica3.txt",
+]
 
 
 def procesar(ruta):

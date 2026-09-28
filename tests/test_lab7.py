@@ -64,8 +64,18 @@ class TestEpsilon(unittest.TestCase):
             "D": sorted(["A", "B", "ab"]),
         })
 
+    def test_gramatica3(self):
+        g = cargar_gramatica(ruta("gramatica3.txt"), verbose=False)
+        self.assertEqual(encontrar_anulables(g, verbose=False), {"A", "B"})
+        nueva, _ = eliminar_epsilon(g, verbose=False)
+        self.assertEqual(como_texto(nueva), {
+            "S": sorted(["ASA", "AS", "SA", "aB", "a"]),
+            "A": ["B", "S"],
+            "B": ["b"],
+        })
+
     def test_sin_producciones_epsilon(self):
-        for nombre in ["gramatica1.txt", "gramatica2.txt"]:
+        for nombre in ["gramatica1.txt", "gramatica2.txt", "gramatica3.txt"]:
             g = cargar_gramatica(ruta(nombre), verbose=False)
             nueva, _ = eliminar_epsilon(g, verbose=False)
             for cuerpos in nueva.producciones.values():
